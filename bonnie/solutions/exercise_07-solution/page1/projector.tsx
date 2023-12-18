@@ -1,16 +1,18 @@
-import { component$, useContext } from '@builder.io/qwik'
-import { searchContextId } from './search-context-id';
+import { component$, useContext } from "@builder.io/qwik";
+import { searchContextId } from "./search-context-id";
 
-interface ProjectorProps{
+interface ProjectorProps {
   message: string;
   color: string;
 }
 
 export const Projector = component$(() => {
+  const { messageSignal, colorSignal } = useContext(searchContextId);
 
-  const {messageSignal, colorSignal} = useContext(searchContextId);
-
-  return <div>You typed:
-    <span style={`color: ${messageSignal.value}`}>{messageSignal.value}</span>
-  </div>
-})
+  return (
+    <div>
+      You typed:
+      <span style={`color: ${messageSignal.value}`}>{messageSignal.value}</span>
+    </div>
+  );
+});

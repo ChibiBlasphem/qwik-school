@@ -1,0 +1,11 @@
+span.default-fallback {
+  display: none;
+}
+
+span.default:empty {
+  display: none;
+}
+
+span.default:empty + .default-fallback {
+  display: initial;
+}
